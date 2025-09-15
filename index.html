@@ -52,19 +52,50 @@
   <script src="flutter_bootstrap.js" async></script>
   
   <script>
+    // Enhanced debugging
+    console.log('Starting Flutter app initialization...');
+
+    // Check if flutter_bootstrap.js loads
+    window.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded');
+      console.log('Base href:', document.querySelector('base').href);
+      console.log('Current URL:', window.location.href);
+
+      // Check if flutter_bootstrap.js exists
+      fetch('./flutter_bootstrap.js')
+        .then(response => {
+          console.log('flutter_bootstrap.js status:', response.status);
+          if (!response.ok) {
+            console.error('Failed to load flutter_bootstrap.js');
+          }
+        })
+        .catch(error => {
+          console.error('Error loading flutter_bootstrap.js:', error);
+        });
+    });
+
     // Hide loading indicator when Flutter app loads
     window.addEventListener('flutter-first-frame', function () {
+      console.log('Flutter first frame rendered!');
       const loading = document.querySelector('#loading');
       if (loading) {
         loading.remove();
       }
     });
-    
-    
-    // Debug: Log when scripts load
-    window.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM loaded');
+
+    // Error handling
+    window.addEventListener('error', function(e) {
+      console.error('Global error:', e.error, e.filename, e.lineno);
     });
+
+    // Timeout fallback - if Flutter doesn't load in 10 seconds, show error
+    setTimeout(function() {
+      const loading = document.querySelector('#loading');
+      if (loading) {
+        console.error('Flutter failed to load within 10 seconds');
+        loading.innerHTML = '<div style="text-align: center; color: red;"><h2>Loading Error</h2><p>Flutter app failed to initialize. Check browser console for details.</p></div>';
+      }
+    }, 10000);
   </script>
 </body>
 </html>
