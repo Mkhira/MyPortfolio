@@ -81,6 +81,12 @@
         loading.remove();
       }
     });
+    
+    
+    // Debug: Log when scripts load
+    window.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded');
+    });
   </script>
 </body>
 </html>
