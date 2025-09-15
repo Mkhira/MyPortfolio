@@ -29,10 +29,58 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>web_cv</title>
+  <title>Mohamed Khaled - Flutter Developer Portfolio</title>
   <link rel="manifest" href="manifest.json">
+  
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-functions-compat.js"></script>
+  
+  <!-- Firebase Configuration -->
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAaTYJKljBLxuuwntkQVudI7zA3SlVeaFU",
+      authDomain: "webcv-a6018.firebaseapp.com",
+      projectId: "webcv-a6018",
+      storageBucket: "webcv-a6018.firebasestorage.app",
+      messagingSenderId: "444589306050",
+      appId: "1:444589306050:web:cccb6b12ddd6fd0e47cb5b",
+      measurementId: "G-Q546LT8E5L"
+    };
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </head>
 <body>
+  <!-- Loading indicator -->
+  <div id="loading" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0A0E27; display: flex; justify-content: center; align-items: center; z-index: 9999;">
+    <div style="text-align: center; color: white;">
+      <div style="width: 50px; height: 50px; border: 3px solid #ffffff20; border-top: 3px solid #64B5F6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+      <p style="font-family: 'Arial', sans-serif; font-size: 18px; margin: 0;">Loading Portfolio...</p>
+    </div>
+  </div>
+  
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  
   <script src="flutter_bootstrap.js" async></script>
+  
+  <script>
+    // Hide loading indicator when Flutter app loads
+    window.addEventListener('flutter-first-frame', function () {
+      const loading = document.querySelector('#loading');
+      if (loading) {
+        loading.remove();
+      }
+    });
+  </script>
 </body>
 </html>
