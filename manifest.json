@@ -1,12 +1,12 @@
 {
-    "name": "web_cv",
-    "short_name": "web_cv",
+    "name": "Mohamed Khaled Khira \u2014 Senior Flutter Engineer",
+    "short_name": "MK \u00b7 CV",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "background_color": "#f9f7f7",
+    "theme_color": "#f9f7f7",
+    "description": "Senior Flutter & cross-platform mobile engineer. Flutter, React Native, .NET MAUI.",
+    "orientation": "any",
     "prefer_related_applications": false,
     "icons": [
         {
